@@ -1,3 +1,5 @@
+@using PierresVendorApp.Models;
+
 @{
   ViewData["Title"] = "Vendors Page";
 }
@@ -5,6 +7,18 @@
 <div class="text-center">
   <h1 class="display-4">Welcome, Pierre's Bakery Staff</h1>
   <div class="container">
-    TODO VENDORS
+    @if (@Model.Count == 0)
+    {
+      <h3>No Vendors Found</h3>
+    }
+    else
+    {
+      @foreach (Vendor aVendor in Model)
+      {
+        <h3>@aVendor.Name</h3>
+        <div class="container"><a href="/vendors/@aVendor.Id/">Click To View Details and Orders</a></div>
+      }
+    }
+    <div class="container"><a href="/vendors/new">Click here</a> to add a new vendor.</div>
   </div>
 </div>
