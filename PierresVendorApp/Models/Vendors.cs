@@ -8,15 +8,15 @@ namespace PierresVendorApp.Models
     public string Description { get; set; }
     public List<Order> Orders { get; set; }
     public int Id { get; }
-    private static int IdCounter = 0;
+    private static int _idCounter = 0;
     private static List<Vendor> _vendors = new List<Vendor>();
     public Vendor(string name, string description)
     {
       Name = name;
       Description = description;
       Orders = new List<Order>();
-      IdCounter += 1;
-      Id = IdCounter;
+      _idCounter += 1;
+      Id = _idCounter;
       _vendors.Add(this);
     }
 
@@ -27,7 +27,13 @@ namespace PierresVendorApp.Models
 
     public static Vendor FindById(int id)
     {
-      return new Vendor("name","desc");
+      return _vendors.Find(vendor => vendor.Id == id);
     }
+
+    public static void ClearAll()
+    {
+      _vendors.Clear();
+    }
+
   }
 }

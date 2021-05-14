@@ -1,12 +1,19 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System;
 using PierresVendorApp.Models;
 
 namespace PierresVendorApp.Tests
 {
   [TestClass]
-  public class VendorTests
+  public class VendorTests : IDisposable
   {
+
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
+
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
@@ -47,11 +54,16 @@ namespace PierresVendorApp.Tests
     }
 
     [TestMethod]
-    public void Vendor_Find_Vendor()
+    public void Vendor_FindById_Vendor()
     {
       Vendor expectedVendor = new Vendor("name", "description");
-      Vendor foundVendor = Vendor.FindById(1);
-      Assert.AreEqual(expectedVendor, foundVendor);
+      // NOTE: 6 is a magic number (this is brittle but I believe fine for testing purposes)
+      // IdCounter doesn't ever decrement so it is the ID# at this point
+      // as 6 is how many tests have instantiated a Vendor instance prior to this test
+      // even though the instances are disposed, I did not want my IdCounter to be reset to 0
+      // to ensure no Id#s are ever reused by the application under any (incl. testing) circumstances
+      Vendor foundVendor = Vendor.FindById(6);
+      Assert.AreEqual(expectedVendor.Id, foundVendor.Id);
     }
   }
 }
