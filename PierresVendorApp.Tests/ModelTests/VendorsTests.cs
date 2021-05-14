@@ -65,5 +65,14 @@ namespace PierresVendorApp.Tests
       Vendor foundVendor = Vendor.FindById(6);
       Assert.AreEqual(expectedVendor.Id, foundVendor.Id);
     }
+
+    [TestMethod]
+    public void Vendor_AddOrder_UpdatesOrdersList()
+    {
+      Vendor myVendor = new Vendor("name", "description");
+      Order newOrder = new Order("title", "description", 10, DateTime.Now);
+      myVendor.AddOrder(newOrder);
+      Assert.AreEqual(myVendor.Orders.Count, 1);
+    }
   }
 }
