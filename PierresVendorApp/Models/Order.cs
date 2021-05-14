@@ -4,7 +4,8 @@ namespace PierresVendorApp.Models
   {
     public string Title { get; set; }
     public string Description { get; set; }
-    public Order(string title, string description)
+    public int Price { get; set; }
+    public Order(string title, string description, int price)
     {
       Title = title;
       Description = description;
