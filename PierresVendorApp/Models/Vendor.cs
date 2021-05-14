@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 namespace PierresVendorApp.Models
 {
@@ -6,7 +6,8 @@ namespace PierresVendorApp.Models
   {
     public string Name { get; set; }
     public string Description { get; set; }
-    public Vendor(string name, string description)
+    public List<Order> Orders { get; set; }
+    public Vendor(string name, string description, List<Order> orders)
     {
       Name = name;
       Description = description;
