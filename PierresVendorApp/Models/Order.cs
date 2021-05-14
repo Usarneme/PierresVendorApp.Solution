@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace PierresVendorApp.Models
 {
@@ -10,6 +11,7 @@ namespace PierresVendorApp.Models
     public DateTime OrderPlacedDate { get; set; }
     public int Id { get; }
     private static int IdCounter = 0;
+    private static List<Order> _orders = new List<Order>();
     public Order(string title, string description, int price, DateTime orderPlacedDate)
     {
       Title = title;
@@ -18,6 +20,13 @@ namespace PierresVendorApp.Models
       OrderPlacedDate = orderPlacedDate;
       IdCounter += 1;
       Id = IdCounter;
+      _orders.Add(this);
+    }
+
+    public static List<Order> GetAllOrders()
+    {
+      return new List<Order>();
+      // return _orders;
     }
   }
 }

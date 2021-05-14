@@ -46,5 +46,11 @@ namespace PierresVendorApp.Tests
       Assert.AreEqual(expectedDate, myOrder.OrderPlacedDate);
     }
 
+    [TestMethod]
+    public void OrderConstructor_AddingOrder_ContainsOrderInOrdersList()
+    {
+      Order myOrder = new Order("title", "description", 1, DateTime.Now);
+      Assert.AreEqual(Order.GetAllOrders().Contains(myOrder), true);
+    }
   }
 }
