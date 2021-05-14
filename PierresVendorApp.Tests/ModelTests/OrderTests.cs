@@ -11,7 +11,7 @@ namespace PierresVendorApp.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order myOrder = new Order("title");
+      Order myOrder = new Order("title", "description");
       Assert.AreEqual(typeof(Order), myOrder.GetType());
     }
 
@@ -19,8 +19,15 @@ namespace PierresVendorApp.Tests
     public void OrderConstructor_HasTitle_Title()
     {
       string expectedTitle = "title";
-      Order myOrder = new Order(expectedTitle);
+      Order myOrder = new Order(expectedTitle, "description");
       Assert.AreEqual(expectedTitle, myOrder.Title);
+    }
+    [TestMethod]
+    public void OrderConstructor_HasDescription_Description()
+    {
+      string expectedDescription = "Description";
+      Order myOrder = new Order("title", expectedDescription);
+      Assert.AreEqual(expectedDescription, myOrder.Description);
     }
   }
 }
