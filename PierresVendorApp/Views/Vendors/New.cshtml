@@ -1,12 +1,25 @@
 @using PierresVendorApp.Models;
 
 @{
-  ViewData["Title"] = "Vendors Page";
+  ViewData["Title"] = "New Business Contact Page";
 }
 
 <div class="text-center">
   <h1 class="display-4">Welcome, Pierre's Bakery Staff</h1>
   <div class="container">
-    TODO NEW
+    <h3>Please enter the below information to create a new Vendor for tracking B2B orders.</h3>
+    <form method="post" action="/vendors">
+      <div class="form-group">
+        <label for="name">Business Name</label>
+        <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" placeholder="Business Name" required>
+        <small id="nameHelp" class="form-text text-muted">Please enter the name of the vendor with which we'll be doing business.</small>
+      </div>
+      <div class="form-group">
+        <label for="description">Description of the Business</label>
+        <input type="text" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Description" required>
+        <small id="descriptionHelp" class="form-text text-muted">Please enter the some notes about the business you'd like to remember such as type, address, point of contact, etc.</small>
+      </div>
+      <button type="submit" class="btn btn-block btn-primary">Create New Business Record</button>
+    </form>
   </div>
 </div>
