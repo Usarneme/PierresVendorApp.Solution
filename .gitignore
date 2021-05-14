@@ -352,3 +352,6 @@ MigrationBackup/
 # C Sharp build files
 */obj/
 */bin/
+
+# visual studio code config
+.vscode/
