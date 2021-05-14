@@ -7,11 +7,15 @@ namespace PierresVendorApp.Models
     public string Name { get; set; }
     public string Description { get; set; }
     public List<Order> Orders { get; set; }
+    public int Id { get; }
+    private static int IdCounter = 0;
     public Vendor(string name, string description, List<Order> orders)
     {
       Name = name;
       Description = description;
       Orders = orders;
+      IdCounter += 1;
+      Id = IdCounter;
     }
   }
 }
