@@ -13,6 +13,7 @@ namespace PierresVendorApp.Models
       Title = title;
       Description = description;
       Price = price;
+      OrderPlacedDate = orderPlacedDate;
     }
   }
 }
