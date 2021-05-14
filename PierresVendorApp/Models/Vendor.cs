@@ -22,7 +22,7 @@ namespace PierresVendorApp.Models
 
     public static List<Vendor> GetAllVendors()
     {
-      return new List<Vendor>();
+      return _vendors;
     }
   }
 }
