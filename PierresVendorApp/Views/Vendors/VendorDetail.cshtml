@@ -8,7 +8,7 @@
   <div class="wrapper">
     <h2>Business Details - @Model.Name</h2>
     <div class="container p-3">
-      <a class="btn btn-block btn-lg btn-info-outline m-4" href="/vendors/@Model.Id/orders/new">Enter A New Order For This Business</a>
+      <a class="btn btn-block btn-lg btn-outline-info m-4" href="/vendors/@Model.Id/orders/new">Enter A New Order For This Business</a>
       <div class="row">
         <span class="col">@Model.Id</span>
         <span class="col">@Model.Name</span>
@@ -30,14 +30,15 @@
               <li class="container">
                 <div class="card">
                   <div class="row">
-                    <span class="col">@order.OrderPlacedDate</span>
-                    <span class="col"> - @order.Id</span>
-                    <span class="col"> - $@order.Price</span>
-                    <span class="col"> - @order.Title</span>
+                    <span class="col">Placed On - @order.OrderPlacedDate</span>
+                    <span class="col">Id - @order.Id</span>
+                    <span class="col">Cost - $@order.Price</span>
+                    <span class="col">Title - @order.Title</span>
                   </div>
                   <div class="row">
-                    <span class="col">@order.Description</span>
+                    <span class="col">Description - @order.Description</span>
                   </div>
+                  <a class="btn btn-block btn-outline-info" href="/vendors/@Model.Id/orders/@order.Id">View Order Details</a>
                 </div>
               </li>
             }

@@ -52,5 +52,19 @@ namespace PierresVendorApp.Tests
       Order myOrder = new Order("title", "description", 1, DateTime.Now);
       Assert.AreEqual(Order.GetAllOrders().Contains(myOrder), true);
     }
+
+    [TestMethod]
+    public void Order_FindById_Order()
+    {
+      Order expectedOrder = new Order("title", "description", 1, DateTime.Now);
+      // NOTE: 7 is a magic number (this is brittle but I believe fine for testing purposes)
+      // IdCounter doesn't ever decrement so it is the ID# at this point
+      // as 7 is how many tests have instantiated a Order instance prior to this test
+      // even though the instances are disposed, I did not want my IdCounter to be reset to 0
+      // to ensure no Id#s are ever reused by the application under any (incl. testing) circumstances
+      Order foundOrder = Order.FindById(7);
+      Console.WriteLine(expectedOrder.Id);
+      Assert.AreEqual(expectedOrder.Id, foundOrder.Id);
+    }
   }
 }

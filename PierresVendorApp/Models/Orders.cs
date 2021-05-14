@@ -23,6 +23,11 @@ namespace PierresVendorApp.Models
       _orders.Add(this);
     }
 
+    public static Order FindById(int id)
+    {
+      return _orders.Find(order => order.Id == id);
+    }
+
     public static List<Order> GetAllOrders()
     {
       return _orders;

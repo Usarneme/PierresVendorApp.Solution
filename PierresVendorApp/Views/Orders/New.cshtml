@@ -4,10 +4,12 @@
   ViewData["Title"] = "@Model.Name - New Order";
 }
 
+@{ int nextOrderNumber = @Model.Orders.Count + 1; }
+
 <div class="text-center">
   <div class="container">
     <h3>Please enter the below information to create a new Order for @Model.Name</h3>
-    <form method="post" action="/vendors/@Model.Id/orders">
+    <form method="post" action="/vendors/@Model.Id/orders/@nextOrderNumber">
       <input type="hidden" name="vendorId" id="vendorId" value="@Model.Id" />
       <div class="form-group">
         <label for="name">Order Title</label>

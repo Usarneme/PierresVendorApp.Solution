@@ -14,19 +14,30 @@ namespace PierresVendorApp.Controllers
       return View(thisVendor);
     }
 
-    [HttpPost("/vendors/{id}/orders")]
+    [HttpGet("/vendors/{id}/orders/{orderId}")]
+    public ActionResult ShowSingleOrder(int vendorId, int orderId)
+    {
+      Vendor thisVendor = Vendor.FindById(vendorId);
+      Order thisOrder = Order.FindById(orderId);
+      Dictionary<string, object> orderData = new Dictionary<string, object>();
+      orderData.Add("vendor", thisVendor);
+      orderData.Add("order", thisOrder);
+      return View("SingleOrder", orderData);
+    }
+
+    [HttpPost("/vendors/{id}/orders/{orderId}")]
     public ActionResult CreateNewOrder(string vendorId, string title, string price, string description, string date)
     {
-      int idAsInt = int.Parse(vendorId);
       int priceAsInt = int.Parse(price);
       DateTime orderDate = Convert.ToDateTime(date);
+      int idAsInt = int.Parse(vendorId);
       Vendor thisVendor = Vendor.FindById(idAsInt);
       Order newOrder = new Order(title, description, priceAsInt, orderDate);
       thisVendor.AddOrder(newOrder);
-      Dictionary<string, object> vendorData = new Dictionary<string, object>();
-      vendorData.Add("vendor", thisVendor);
-      vendorData.Add("order", newOrder);
-      return View("SingleOrder", vendorData);
+      Dictionary<string, object> orderData = new Dictionary<string, object>();
+      orderData.Add("vendor", thisVendor);
+      orderData.Add("order", newOrder);
+      return View("SingleOrder", orderData);
     }
   }
 }

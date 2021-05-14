@@ -1,7 +1,35 @@
 @using PierresVendorApp.Models;
 
 @{
-  ViewData["Title"] = "@Model.vendor.Name - Order @Model.order.Id";
+  ViewData["Title"] = "@Model.vendor.Name - Order @Model[\"order\"].Id";
 }
 
-TODO
+<div class="container">
+  <div class="wrapper">
+    <h2>@Model["vendor"].Name Order @Model["order"].Id</h2>
+    <div class="container p-3">
+      @* <a class="btn btn-block btn-lg btn-outline-info m-4" href='/vendors/@Model["vendor"].Id/'>View @Model.vendor.Name Business Details</a> *@
+      <div class="row">
+        <span class="col">@Model["vendor"].Id</span>
+        <span class="col">@Model["vendor"].Name</span>
+      </div>
+      <div class="row">
+        <div class="col">Business Description: @Model["vendor"].Description</div>
+      </div>
+      <div class="row">
+        <h4>Order Details:</h4>
+        <div class="card">
+          <div class="row">
+            <span class="col">@Model["order"].OrderPlacedDate</span>
+            <span class="col"> - @Model["order"].Id</span>
+            <span class="col"> - $@Model["order"].Price</span>
+            <span class="col"> - @Model["order"].Title</span>
+          </div>
+          <div class="row">
+            <span class="col">@Model["order"].Description</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
