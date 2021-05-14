@@ -45,5 +45,13 @@ namespace PierresVendorApp.Tests
       Vendor myVendor = new Vendor("name", "description");
       Assert.AreEqual(Vendor.GetAllVendors().Contains(myVendor), true);
     }
+
+    [TestMethod]
+    public void Vendor_Find_Vendor()
+    {
+      Vendor expectedVendor = new Vendor("name", "description");
+      Vendor foundVendor = Vendor.FindById(1);
+      Assert.AreEqual(expectedVendor, foundVendor);
+    }
   }
 }

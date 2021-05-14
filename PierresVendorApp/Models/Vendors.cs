@@ -24,5 +24,10 @@ namespace PierresVendorApp.Models
     {
       return _vendors;
     }
+
+    public static Vendor FindById(int id)
+    {
+      return new Vendor("name","desc");
+    }
   }
 }

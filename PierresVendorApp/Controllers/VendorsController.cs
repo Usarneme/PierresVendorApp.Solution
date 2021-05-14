@@ -26,5 +26,12 @@ namespace PierresVendorApp.Controllers
       new Vendor(name, description);
       return RedirectToAction("Index");
     }
+
+    [HttpGet("vendors/{id}")]
+    public ActionResult VendorDetail(int id)
+    {
+      Vendor foundVendor = Vendor.FindById(id);
+      return View(foundVendor);
+    }
   }
 }
