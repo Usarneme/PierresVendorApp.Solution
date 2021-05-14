@@ -25,8 +25,7 @@ namespace PierresVendorApp.Models
 
     public static List<Order> GetAllOrders()
     {
-      return new List<Order>();
-      // return _orders;
+      return _orders;
     }
   }
 }
