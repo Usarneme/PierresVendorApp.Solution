@@ -7,6 +7,7 @@ namespace PierresVendorApp.Models
     public Order(string title, string description)
     {
       Title = title;
+      Description = description;
     }
   }
 }
