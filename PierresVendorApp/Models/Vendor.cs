@@ -11,6 +11,7 @@ namespace PierresVendorApp.Models
     {
       Name = name;
       Description = description;
+      Orders = orders;
     }
   }
 }
