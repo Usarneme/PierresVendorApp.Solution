@@ -35,5 +35,10 @@ namespace PierresVendorApp.Models
       _vendors.Clear();
     }
 
+    public void AddOrder(Order order)
+    {
+      Orders.Add(order);
+    }
+
   }
 }

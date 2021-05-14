@@ -1,0 +1,49 @@
+@using PierresVendorApp.Models;
+
+@{
+  ViewData["Title"] = "Business Details - @Model.Name";
+}
+
+<div class="container">
+  <div class="wrapper">
+    <h2>Business Details - @Model.Name</h2>
+    <div class="container p-3">
+      <a class="btn btn-block btn-lg btn-info-outline m-4" href="/vendors/@Model.Id/orders/new">Enter A New Order For This Business</a>
+      <div class="row">
+        <span class="col">@Model.Id</span>
+        <span class="col">@Model.Name</span>
+      </div>
+      <div class="row">
+        <div class="col">Business Description: @Model.Description</div>
+      </div>
+      <div class="row">
+        @if (@Model.Orders.Count == 0)
+        {
+          <h4>No Orders On Record For This Business</h4>
+        }
+        else
+        {
+          <h4>Order History:</h4>
+          <ul>
+            @foreach (Order order in @Model.Orders)
+            {
+              <li class="container">
+                <div class="card">
+                  <div class="row">
+                    <span class="col">@order.OrderPlacedDate</span>
+                    <span class="col"> - @order.Id</span>
+                    <span class="col"> - $@order.Price</span>
+                    <span class="col"> - @order.Title</span>
+                  </div>
+                  <div class="row">
+                    <span class="col">@order.Description</span>
+                  </div>
+                </div>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  </div>
+</div>

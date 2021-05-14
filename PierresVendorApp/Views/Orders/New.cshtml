@@ -1,0 +1,35 @@
+@using PierresVendorApp.Models;
+
+@{
+  ViewData["Title"] = "@Model.Name - New Order";
+}
+
+<div class="text-center">
+  <div class="container">
+    <h3>Please enter the below information to create a new Order for @Model.Name</h3>
+    <form method="post" action="/vendors/@Model.Id/orders">
+      <input type="hidden" name="vendorId" id="vendorId" value="@Model.Id" />
+      <div class="form-group">
+        <label for="name">Order Title</label>
+        <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="Order Title" required>
+        <small id="titleHelp" class="form-text text-muted">Please enter a title for this order.</small>
+      </div>
+      <div class="form-group">
+        <label for="description">Price</label>
+        <input type="number" class="form-control" min="0" name="price" id="price" aria-describedby="priceHelp" required>
+        <small id="priceHelp" class="form-text text-muted">Please enter the cost of the order.</small>
+      </div>
+      <div class="form-group">
+        <label for="description">Description of the Order</label>
+        <input type="text" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Description" required>
+        <small id="descriptionHelp" class="form-text text-muted">Please enter the some notes about the order such as quantity, items, etc.</small>
+      </div>
+      <div class="form-group">
+        <label for="description">Date</label>
+        <input type="date" class="form-control" name="date" id="date" aria-describedby="dateHelp" required>
+        <small id="dateHelp" class="form-text text-muted">Please enter date this order was made.</small>
+      </div>
+      <button type="submit" class="btn btn-block btn-primary">Submit Order Record</button>
+    </form>
+  </div>
+</div>
