@@ -2,6 +2,10 @@ namespace PierresVendorApp.Models
 {
   public class Order
   {
-    // todo
+    public string Title { get; set; }
+    public Order(string title)
+    {
+      // todo
+    }
   }
 }
