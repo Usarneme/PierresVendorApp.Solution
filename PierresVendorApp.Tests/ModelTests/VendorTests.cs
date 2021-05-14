@@ -38,5 +38,11 @@ namespace PierresVendorApp.Tests
       CollectionAssert.AreEqual(expectedVendorOrders, myVendor.Orders);
     }
 
+    [TestMethod]
+    public void VendorConstructor_CreatingVendorAddsVendorToVendorsList_VendorListContainsVendor()
+    {
+      Vendor myVendor = new Vendor("name", "description", new List<Order>());
+      Assert.AreEqual(Vendor.GetAllVendors().Contains(myVendor), true);
+    }
   }
 }

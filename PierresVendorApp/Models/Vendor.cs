@@ -9,6 +9,7 @@ namespace PierresVendorApp.Models
     public List<Order> Orders { get; set; }
     public int Id { get; }
     private static int IdCounter = 0;
+    private static List<Vendor> _vendors = new List<Vendor>();
     public Vendor(string name, string description, List<Order> orders)
     {
       Name = name;
@@ -16,6 +17,12 @@ namespace PierresVendorApp.Models
       Orders = orders;
       IdCounter += 1;
       Id = IdCounter;
+      _vendors.Add(this);
+    }
+
+    public static List<Vendor> GetAllVendors()
+    {
+      return new List<Vendor>();
     }
   }
 }
