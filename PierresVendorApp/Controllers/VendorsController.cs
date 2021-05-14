@@ -19,5 +19,12 @@ namespace PierresVendorApp.Controllers
     {
       return View();
     }
+
+    [HttpPost("/vendors")]
+    public ActionResult CreateNewVendor(string name, string description)
+    {
+      new Vendor(name, description);
+      return RedirectToAction("Index");
+    }
   }
 }

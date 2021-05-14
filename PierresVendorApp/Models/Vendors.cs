@@ -10,11 +10,11 @@ namespace PierresVendorApp.Models
     public int Id { get; }
     private static int IdCounter = 0;
     private static List<Vendor> _vendors = new List<Vendor>();
-    public Vendor(string name, string description, List<Order> orders)
+    public Vendor(string name, string description)
     {
       Name = name;
       Description = description;
-      Orders = orders;
+      Orders = new List<Order>();
       IdCounter += 1;
       Id = IdCounter;
       _vendors.Add(this);

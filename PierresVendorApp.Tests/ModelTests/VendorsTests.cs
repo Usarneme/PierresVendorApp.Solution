@@ -10,7 +10,7 @@ namespace PierresVendorApp.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor myVendor = new Vendor("name", "description", new List<Order>());
+      Vendor myVendor = new Vendor("name", "description");
       Assert.AreEqual(typeof(Vendor), myVendor.GetType());
     }
 
@@ -18,7 +18,7 @@ namespace PierresVendorApp.Tests
     public void VendorConstructor_HasName_Name()
     {
       string expectedVendorName = "vendor";
-      Vendor myVendor = new Vendor(expectedVendorName, "dsecription", new List<Order>());
+      Vendor myVendor = new Vendor(expectedVendorName, "dsecription");
       Assert.AreEqual(expectedVendorName, myVendor.Name);
     }
 
@@ -26,7 +26,7 @@ namespace PierresVendorApp.Tests
     public void VendorConstructor_HasDescription_Description()
     {
       string expectedVendorDescription = "description";
-      Vendor myVendor = new Vendor("name", expectedVendorDescription, new List<Order>());
+      Vendor myVendor = new Vendor("name", expectedVendorDescription);
       Assert.AreEqual(expectedVendorDescription, myVendor.Description);
     }
 
@@ -34,14 +34,15 @@ namespace PierresVendorApp.Tests
     public void VendorConstructor_HasOrders_Orders()
     {
       List<Order> expectedVendorOrders = new List<Order>();
-      Vendor myVendor = new Vendor("name", "description", expectedVendorOrders);
+      Vendor myVendor = new Vendor("name", "description");
+      myVendor.Orders = expectedVendorOrders;
       CollectionAssert.AreEqual(expectedVendorOrders, myVendor.Orders);
     }
 
     [TestMethod]
     public void VendorConstructor_CreatingVendorAddsVendorToVendorsList_VendorListContainsVendor()
     {
-      Vendor myVendor = new Vendor("name", "description", new List<Order>());
+      Vendor myVendor = new Vendor("name", "description");
       Assert.AreEqual(Vendor.GetAllVendors().Contains(myVendor), true);
     }
   }
