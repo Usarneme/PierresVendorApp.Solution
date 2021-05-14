@@ -5,7 +5,7 @@ namespace PierresVendorApp.Models
     public string Title { get; set; }
     public Order(string title)
     {
-      // todo
+      Title = title;
     }
   }
 }
