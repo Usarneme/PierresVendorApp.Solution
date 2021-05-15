@@ -17,26 +17,28 @@
       }
       else
       {
-        <h4>Order History:</h4>
-        <ul>
+        <h4 class="pt-4 pb-2">Order History</h4>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-1">ID</div>
+            <div class="col-sm-3">Title</div>
+            <div class="col-sm-3">Date</div>
+            <div class="col-sm-2">Price</div>
+            <div class="col-sm-3">Description</div>
+          </div>
           @foreach (Order order in @Model.Orders)
           {
-            <li class="container">
-              <div class="card">
-                <div class="row">
-                  <span class="col">Placed On - @order.OrderPlacedDate</span>
-                  <span class="col">Id - @order.Id</span>
-                  <span class="col">Cost - $@order.Price</span>
-                  <span class="col">Title - @order.Title</span>
-                </div>
-                <div class="row">
-                  <span class="col">Description - @order.Description</span>
-                </div>
-                <a class="btn btn-block btn-outline-info" href="/vendors/@Model.Id/orders/@order.Id">View Order Details</a>
-              </div>
-            </li>
+          <div class="row">
+            <div class="col-sm-1">@order.Id</div>
+            <div class="col-sm-3">@order.Title</div>
+            <div class="col-sm-3">@order.OrderPlacedDate</div>
+            <div class="col-sm-2">$@order.Price</div>
+            <div class="col-sm-3">@order.Description</div>
+          </div>
+          <a class="btn btn-block btn-primary" href="/vendors/@Model.Id/orders/@order.Id">View Order Details</a>
+          <hr />
           }
-        </ul>
+        </div>
       }
     </div>
   </div>

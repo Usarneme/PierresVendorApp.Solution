@@ -54,7 +54,7 @@ namespace PierresVendorApp.Tests
     }
 
     [TestMethod]
-    public void Vendor_FindById_Vendor()
+    public void Vendor_FindById6_Vendor()
     {
       Vendor expectedVendor = new Vendor("name", "description");
       // NOTE: 6 is a magic number (this is brittle but I believe fine for testing purposes)
@@ -63,6 +63,14 @@ namespace PierresVendorApp.Tests
       // even though the instances are disposed, I did not want my IdCounter to be reset to 0
       // to ensure no Id#s are ever reused by the application under any (incl. testing) circumstances
       Vendor foundVendor = Vendor.FindById(6);
+      Assert.AreEqual(expectedVendor.Id, foundVendor.Id);
+    }
+
+    [TestMethod]
+    public void Vendor_FindById7_Vendor()
+    {
+      Vendor expectedVendor = new Vendor("name", "description");
+      Vendor foundVendor = Vendor.FindById(7);
       Assert.AreEqual(expectedVendor.Id, foundVendor.Id);
     }
 

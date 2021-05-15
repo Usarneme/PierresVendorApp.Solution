@@ -72,15 +72,7 @@ main {
   border: 0;
   margin: 0;
   padding: 0;
-}
-
-main, .wrapper {
   background: rgba(255,255,255,0.42);
-}
-
-.wrapper {
-  min-height: 100%;
-  margin: 0;
 }
 
 .homepage {

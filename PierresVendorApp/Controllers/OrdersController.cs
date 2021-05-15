@@ -14,7 +14,7 @@ namespace PierresVendorApp.Controllers
       return View(thisVendor);
     }
 
-    [HttpGet("/vendors/{id}/orders/{orderId}")]
+    [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
     public ActionResult ShowSingleOrder(int vendorId, int orderId)
     {
       Vendor thisVendor = Vendor.FindById(vendorId);
