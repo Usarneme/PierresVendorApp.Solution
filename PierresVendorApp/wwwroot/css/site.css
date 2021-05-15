@@ -61,11 +61,46 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background: url("https://wallpapersdsc.net/wp-content/uploads/2016/09/Bread-HD-Desktop.jpg");
+  background-size: cover;
+  min-height: 90vh;
 }
+
+main {
+  min-height: 85vh;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+main, .wrapper {
+  background: rgba(255,255,255,0.42);
+}
+
+.wrapper {
+  min-height: 100%;
+  margin: 0;
+}
+
+.homepage {
+  min-height: 100%;
+  width: 100%;
+}
+
+header, footer {
+  opacity: 0.75;
+}
+
 .footer {
+  background: white;
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.underline {
+  border-bottom: 1px solid #111;
 }

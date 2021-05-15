@@ -5,18 +5,18 @@
 }
 
 <div class="text-center">
-  <h1 class="display-4">Welcome, Pierre's Bakery Staff</h1>
+  <h1 class="display-4 pt-5">Vendors List</h1>
   <div class="container">
     @if (@Model.Count == 0)
     {
-      <h3 class="text-center mt-4 mb-2">No Vendors Found</h3>
+      <h3 class="text-center mt-4 mb-2">- No Vendors Found -</h3>
     }
     else
     {
       <div class="row">
         @foreach (Vendor aVendor in Model)
         {
-          <div class="col">
+          <div class="col-sm-4">
             <div class="card p-3 m-2">
               <h3>@aVendor.Name</h3>
               <div class=""><a href="/vendors/@aVendor.Id/">Click To View Details and Orders</a></div>
@@ -26,6 +26,6 @@
       </div>
       <hr class="border-bottom" />
     }
-    <div class="container"><a class="btn btn-lg btn-block btn-outline-info mt-3" href="/vendors/new">Click here to add a new vendor.</a></div>
+    <div class="container"><a class="btn btn-lg btn-primary mt-5" href="/vendors/new">Add A New Vendor</a></div>
   </div>
 </div>

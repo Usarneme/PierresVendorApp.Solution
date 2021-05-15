@@ -6,32 +6,40 @@
 
 @{ int nextOrderNumber = @Model.Orders.Count + 1; }
 
-<div class="text-center">
+<div class="wrapper text-center">
   <div class="container">
-    <h3>Please enter the below information to create a new Order for @Model.Name</h3>
+    <h3 class="pt-4 pb-5">Please enter the below information to create a new Order for @Model.Name</h3>
     <form method="post" action="/vendors/@Model.Id/orders/@nextOrderNumber">
       <input type="hidden" name="vendorId" id="vendorId" value="@Model.Id" />
-      <div class="form-group">
-        <label for="name">Order Title</label>
-        <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="Order Title" required>
-        <small id="titleHelp" class="form-text text-muted">Please enter a title for this order.</small>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="name">Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="Order Title" required>
+          <small id="titleHelp" class="form-text text-muted">Please enter a title for this order.</small>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="description">Price</label>
-        <input type="number" class="form-control" min="0" name="price" id="price" aria-describedby="priceHelp" required>
-        <small id="priceHelp" class="form-text text-muted">Please enter the cost of the order.</small>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="description">Price</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" min="0" value="0" name="price" id="price" aria-describedby="priceHelp" required>
+          <small id="priceHelp" class="form-text text-muted">Please enter the cost of the order.</small>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="description">Description of the Order</label>
-        <input type="text" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Description" required>
-        <small id="descriptionHelp" class="form-text text-muted">Please enter the some notes about the order such as quantity, items, etc.</small>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="description">Description</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Description" required>
+          <small id="descriptionHelp" class="form-text text-muted">Please enter the some notes about the order such as quantity, items, etc.</small>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="description">Date</label>
-        <input type="date" class="form-control" name="date" id="date" aria-describedby="dateHelp" required>
-        <small id="dateHelp" class="form-text text-muted">Please enter date this order was made.</small>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="description">Date</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" name="date" id="date" aria-describedby="dateHelp" required>
+          <small id="dateHelp" class="form-text text-muted">Date</small>
+        </div>
       </div>
-      <button type="submit" class="btn btn-block btn-primary">Submit Order Record</button>
+      <button type="submit" class="btn btn-lg btn-block btn-primary">Submit Order</button>
     </form>
   </div>
 </div>

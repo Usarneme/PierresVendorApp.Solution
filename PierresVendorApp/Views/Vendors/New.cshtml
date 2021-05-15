@@ -5,21 +5,27 @@
 }
 
 <div class="text-center">
-  <h1 class="display-4">Welcome, Pierre's Bakery Staff</h1>
+  <h1 class="display-4 pt-5">Add New Vendor</h1>
   <div class="container">
     <h3>Please enter the below information to create a new Vendor for tracking B2B orders.</h3>
-    <form method="post" action="/vendors">
-      <div class="form-group">
-        <label for="name">Business Name</label>
-        <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" placeholder="Business Name" required>
-        <small id="nameHelp" class="form-text text-muted">Please enter the name of the vendor with which we'll be doing business.</small>
-      </div>
-      <div class="form-group">
-        <label for="description">Description of the Business</label>
-        <input type="text" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Description" required>
-        <small id="descriptionHelp" class="form-text text-muted">Please enter the some notes about the business you'd like to remember such as type, address, point of contact, etc.</small>
-      </div>
-      <button type="submit" class="btn btn-block btn-primary">Create New Business Record</button>
-    </form>
+    <div class="container pt-4">
+      <form class="pt-2" method="post" action="/vendors">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="name">Business Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" placeholder="Business Name" required>
+            <small id="nameHelp" class="form-text text-muted">Please enter the name of the vendor with which we'll be doing business.</small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="description">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="description" id="description" aria-describedby="descriptionHelp" placeholder="Description" required>
+            <small id="descriptionHelp" class="form-text text-muted">Please enter the some notes about the business you'd like to remember such as type, address, point of contact, etc.</small>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Create New Business Record</button>
+      </form>
+    </div>
   </div>
 </div>

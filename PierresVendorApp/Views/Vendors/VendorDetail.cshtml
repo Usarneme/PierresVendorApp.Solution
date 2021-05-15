@@ -4,47 +4,40 @@
   ViewData["Title"] = "Business Details - @Model.Name";
 }
 
-<div class="container">
-  <div class="wrapper">
-    <h2>Business Details - @Model.Name</h2>
-    <div class="container p-3">
-      <a class="btn btn-block btn-lg btn-outline-info m-4" href="/vendors/@Model.Id/orders/new">Enter A New Order For This Business</a>
-      <div class="row">
-        <span class="col">@Model.Id</span>
-        <span class="col">@Model.Name</span>
-      </div>
-      <div class="row">
-        <div class="col">Business Description: @Model.Description</div>
-      </div>
-      <div class="row">
-        @if (@Model.Orders.Count == 0)
-        {
-          <h4>No Orders On Record For This Business</h4>
-        }
-        else
-        {
-          <h4>Order History:</h4>
-          <ul>
-            @foreach (Order order in @Model.Orders)
-            {
-              <li class="container">
-                <div class="card">
-                  <div class="row">
-                    <span class="col">Placed On - @order.OrderPlacedDate</span>
-                    <span class="col">Id - @order.Id</span>
-                    <span class="col">Cost - $@order.Price</span>
-                    <span class="col">Title - @order.Title</span>
-                  </div>
-                  <div class="row">
-                    <span class="col">Description - @order.Description</span>
-                  </div>
-                  <a class="btn btn-block btn-outline-info" href="/vendors/@Model.Id/orders/@order.Id">View Order Details</a>
+<div class="wrapper text-center">
+  <h2 class="pt-5 pb-2 mb-2 underline">Business Details</h2>
+  <h3>ID#@Model.Id - @Model.Name</h3>
+  <h3 class="">@Model.Description</h3>
+  <div class="container text-center p-3">
+    <a class="btn btn-lg btn-primary" href="/vendors/@Model.Id/orders/new">New Order</a>
+    <div class="container text-center">
+      @if (@Model.Orders.Count == 0)
+      {
+        <p class="text-center"><h4 class="pt-5">No Orders On Record For This Business</h4></p>
+      }
+      else
+      {
+        <h4>Order History:</h4>
+        <ul>
+          @foreach (Order order in @Model.Orders)
+          {
+            <li class="container">
+              <div class="card">
+                <div class="row">
+                  <span class="col">Placed On - @order.OrderPlacedDate</span>
+                  <span class="col">Id - @order.Id</span>
+                  <span class="col">Cost - $@order.Price</span>
+                  <span class="col">Title - @order.Title</span>
                 </div>
-              </li>
-            }
-          </ul>
-        }
-      </div>
+                <div class="row">
+                  <span class="col">Description - @order.Description</span>
+                </div>
+                <a class="btn btn-block btn-outline-info" href="/vendors/@Model.Id/orders/@order.Id">View Order Details</a>
+              </div>
+            </li>
+          }
+        </ul>
+      }
     </div>
   </div>
 </div>
